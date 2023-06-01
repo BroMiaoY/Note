@@ -127,3 +127,72 @@ keep changing  θ0,θ1 to reduce J(θ0,θ1)
 ![image-20230601164835777](image-20230601164835777-1685609317620-19.png)
 
 ### 2.7 Gradient descent for linear regression
+
+- 利用梯度下降法最小化平方差代价函数：最重要的是编导项的确定
+
+![image-20230601190523102](image-20230601190523102.png)
+
+- 带入、求导
+
+![image-20230601191155053](image-20230601191155053.png)
+
+- 代入Gradient descent algorithm
+
+![image-20230601191442227](image-20230601191442227.png)
+
+
+
+## 3 Linear Algebra review
+
+### 3.1 Matrices and vectors
+
+vectors is n×1 matirx
+
+### 3.2 Addition  and scalar multiplication
+
+矩阵的加减法
+
+### 3.3 Matrix-vector multiplication
+
+矩阵向量相乘
+
+**将实际问题转化为：矩阵向量相乘**
+
+![image-20230601195655704](image-20230601195655704.png)
+
+### 3.4 Matrix-matrix multiplication
+
+n×m * m×o -> n×o
+
+**实际问题转化成：矩阵与矩阵相乘/多个假设回归函数**
+
+![image-20230601200648653](image-20230601200648653.png)
+
+### 3.5 Matrix mutiplication properties矩阵乘法特征
+
+- 矩阵乘法**没有**交换律：**A×B ≠ B×A**
+
+- 矩阵乘法**有**结合律：**A×(B×C) = (A×B)×C**
+
+- **Identity Matrix**单位矩阵：
+  - 对角线为1，其余为0
+  - For any matrix：**A·I = I·A = A**
+
+![image-20230601201854770](.\image-20230601201854770.png)
+
+### 3.6 Inverse and transpose逆和转置
+
+- **A×A的逆矩阵 = A的逆矩阵×A = I**
+
+![image-20230601204252689](image-20230601204252689.png)
+
+- **Matrix Transpose**矩阵的转置
+
+![image-20230601204506614](image-20230601204506614.png)
+
+
+
+## 4 Linear Regression with multiple variables
+
+### 4.1 Multiple features
+
