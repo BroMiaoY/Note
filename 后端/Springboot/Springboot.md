@@ -53,6 +53,6 @@
 
 2. 在idea中点击File -> Settings -> Editer -> File Encodings将Global Encoding和Project Encodeing都改为UTF-8
 
-![编码不统一](.\编码不统一.png)
+![编码不统一](https://github.com/BroMiaoY/Note/blob/main/%E5%90%8E%E7%AB%AF/Springboot/%E7%BC%96%E7%A0%81%E4%B8%8D%E7%BB%9F%E4%B8%80.png)
 
 **或者全改为GBK，统一即可**

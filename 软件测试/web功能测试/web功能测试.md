@@ -89,7 +89,7 @@ pom.xml
 
 选择win64版本
 
-![geckodriver安装版本](.\geckodriver安装版本.png)
+![geckodriver安装版本](https://github.com/BroMiaoY/Note/blob/main/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/web%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/geckodriver%E5%AE%89%E8%A3%85%E7%89%88%E6%9C%AC.png)
 
 在测试代码中添加驱动路径：这里的地址是下载解压后的`geckodriver.exe`的本地地址。
 
