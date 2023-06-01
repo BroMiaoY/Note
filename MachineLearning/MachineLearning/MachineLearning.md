@@ -1,5 +1,5 @@
 ---
-typora-copy-images-to: https://github.com/BroMiaoY/Note/blob/main/MachineLearning/MachineLearning/
+typora-copy-images-to: https://github.com/BroMiaoY/Note/blob/main/MachineLearning/MachineLearning//^(?!.*./)/
 ---
 
 # Machine Learning
