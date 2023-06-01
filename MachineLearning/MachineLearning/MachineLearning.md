@@ -1,5 +1,5 @@
 ---
-typora-copy-images-to: https://github.com/BroMiaoY/Note/blob/main/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/MachineLearning/
+typora-copy-images-to: https://github.com/BroMiaoY/Note/blob/main/MachineLearning/MachineLearning/
 ---
 
 # Machine Learning
@@ -98,7 +98,7 @@ clustering algorithms
 
 - **Cost Function等高线图**
 
-![代价函数等高线图](.\image-20230601160020658-1685606422352-11.png)
+![image1](.\image-20230601160020658-1685606422352-11.png)
 
 ### 2.5 Gradient descent
 
@@ -109,21 +109,21 @@ keep changing  θ0,θ1 to reduce J(θ0,θ1)
   - `α` :learning rate/步长
 - 同步更新：Simultaneous update
 
-![梯度下降算法](.\image-20230601163137576-1685608299690-13.png)
+![image2](.\image-20230601163137576-1685608299690-13.png)
 
 ### 2.6 Summarize Gradient descent
 
 - **步长太小**：梯度下降慢
 - **步长太大**：可能越过最优解
 
-![步长的取值](.\image-20230601164139917-1685608900772-15.png)
+![image3](.\image-20230601164139917-1685608900772-15.png)
 
 - **达到局部最优解时**：参数不再变化，停止下降
 
-![梯度下降达到最优解时的状态](.\image-20230601164422475-1685609064073-17.png)
+![image4](.\image-20230601164422475-1685609064073-17.png)
 
 - **越接近最优解，下降速度越慢**：无需修改步长，倒数会越来越小
 
-![image-20230601164835777](D:\miao\note\机器学习\MachineLearning\image-20230601164835777-1685609317620-19.png)
+![image-20230601164835777](.\image-20230601164835777-1685609317620-19.png)
 
 ### 2.7 Gradient descent for linear regression
