@@ -1,12 +1,12 @@
 ---
-typora-copy-images-to: ./
+typora-copy-images-to: https://github.com/BroMiaoY/Note/blob/main/MachineLearning/MachineLearning/
 ---
 
 # Machine Learning
 
 机器学习笔记，[B站吴恩达老师视频](https://www.bilibili.com/video/BV164411S78V/?spm_id_from=333.999.0.0)
 
-
+https://github.com/BroMiaoY/Note/blob/main/MachineLearning/MachineLearning/
 
 ## 1 Supervised Learning AND Unsupervised Learning
 
@@ -282,3 +282,4 @@ $$
 ### 4.7 Normal equation and non-invertibility(不可逆性)
 
 - $X^TX$不可逆问题
+
