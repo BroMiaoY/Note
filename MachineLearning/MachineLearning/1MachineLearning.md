@@ -178,7 +178,7 @@ $n \times m \ast m \times o \rightarrow n \times o$
   - 对角线为1，其余为0
   - For any matrix：$A·I = I·A = A$
 
-![image-20230601201854770](.\image-20230601201854770.png)
+![image-20230601201854770](image-20230601201854770.png)
 
 ### 3.6 Inverse and transpose逆和转置
 
