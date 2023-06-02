@@ -1,5 +1,5 @@
 ---
-typora-copy-images-to: https://github.com/BroMiaoY/Note/blob/main/MachineLearning/MachineLearning/
+typora-copy-images-to: ./
 ---
 
 # Machine Learning
@@ -74,17 +74,17 @@ clustering algorithms
 
 - 回归函数和代价函数
 
-  - θ1=1
+  - $θ_1 = 1$
 
   ![image-20230601154047555](2.3斜率为0.png)
 
-  - θ1=0.5
+  - $θ_1 = 0.5$
 
   ![image-20230601154353554](2.3参数为0.5.png)
 
   
 
-- Cost Function/θ0=0时**J(θ1)图**
+- Cost Function/$(θ_0 = 0)$时**J(θ1)图**
 
 ![image-20230601155055643](2.3CostFunction绘制.png)
 
@@ -102,7 +102,7 @@ clustering algorithms
 
 ### 2.5 Gradient descent
 
-keep changing  θ0,θ1 to reduce J(θ0,θ1)
+keep changing  $θ_0,θ_1$ to reduce $J(θ_0,θ_1)$
 
 - **Gradient descent algorithm**:
   - `:=` Assignment/赋值
@@ -146,7 +146,7 @@ keep changing  θ0,θ1 to reduce J(θ0,θ1)
 
 ### 3.1 Matrices and vectors
 
-vectors is n×1 matirx
+vectors is $n \times 1$ matirx
 
 ### 3.2 Addition  and scalar multiplication
 
@@ -162,7 +162,7 @@ vectors is n×1 matirx
 
 ### 3.4 Matrix-matrix multiplication
 
-n×m * m×o -> n×o
+$n \times m \ast m \times o \rightarrow n \times o$
 
 **实际问题转化成：矩阵与矩阵相乘/多个假设回归函数**
 
@@ -170,13 +170,13 @@ n×m * m×o -> n×o
 
 ### 3.5 Matrix mutiplication properties矩阵乘法特征
 
-- 矩阵乘法**没有**交换律：**A×B ≠ B×A**
+- 矩阵乘法**没有**交换律：$A×B ≠ B×A$
 
-- 矩阵乘法**有**结合律：**A×(B×C) = (A×B)×C**
+- 矩阵乘法**有**结合律：$A×(B×C) = (A×B)×C$
 
 - **Identity Matrix**单位矩阵：
   - 对角线为1，其余为0
-  - For any matrix：**A·I = I·A = A**
+  - For any matrix：$A·I = I·A = A$
 
 ![image-20230601201854770](.\image-20230601201854770.png)
 
@@ -194,5 +194,91 @@ n×m * m×o -> n×o
 
 ## 4 Linear Regression with multiple variables
 
-### 4.1 Multiple features
+### 4.1 Multiple features(variables)
 
+- **Notation**:
+  - n：特征的数量
+  - x^(i)^：第i行，既第i个特征向量
+  - x^(i)^~j~：第i个特征向量的第j个特征值
+
+![image-20230602084931086](image-20230602084931086.png)
+
+- Multivariate linear regression transfer to Matrix Multiplication：多元线性回归问题转化为矩阵相乘
+
+![image-20230602090101143](image-20230602090101143.png)
+
+### 4.2 Gradient descent for multiple variables
+
+![image-20230602090929826](image-20230602090929826.png)
+
+### 4.3 Gradient descent in practice I:Feature Scaling特征缩放
+
+- 比例缩放：**特征之间取值范围差异过大**会出现代价函数的等高线图偏移严重（太瘦或太胖）
+- 比例缩放后：在进行梯度下降时下降的路径就不会左右摇摆，因此能够更快的收敛
+
+![image-20230602092004612](image-20230602092004612.png)
+
+- 缩放习惯
+
+![image-20230602092508190](image-20230602092508190.png)
+
+- **mean normalization**均值归一化
+  - $\mu$：平均值
+  - $s_1$：总数
+
+
+$$
+x_1 = \frac{x_1 - \mu}{s_1}
+$$
+
+![image-20230602094246313](image-20230602094246313.png)
+
+### 4.4 Gradient descent in  practice Ⅱ: Learning rate $\alpha$
+
+- **Making sure gradient descent is working correctly**
+
+​		$J(\theta)$ should decrease after every iterations(迭代)
+
+- 判断是否收敛，<$\varepsilon$的值
+
+![image-20230602100332914](image-20230602100332914.png)
+
+- **learning rate**太大可能冲过最小值，就会出现Gradient descent出错
+
+![image-20230602100647929](image-20230602100647929.png)
+
+- **Summary**
+  - $\alpha$ 太小可能出现收敛较慢
+  - $\alpha$ 太大可能$J(\theta)$在每次迭代时没有收敛
+
+### 4.5 Features and polynomial regression多项式回归
+
+根据不同情况做合适的特征选择
+
+### 4.6 Normal equation（正态方程）
+
+直接找到最优解的$\theta$使得的Cost function：$J(\theta)$最小
+
+求偏导置0，解出参数的取值
+$$
+\theta = (X^TX)^{-1}X^Ty
+$$
+![image-20230602105311062](image-20230602105311062.png)
+
+-  构建矩阵$X$
+
+![image-20230602111332432](image-20230602111332432.png)
+
+- gradient descent 和 normal equation 优缺点对比
+
+|      Gradient Descent       |                      Normal Equation                      |
+| :-------------------------: | :-------------------------------------------------------: |
+|   需要选择合适的$\alpha$    |                  无需选择合适的$\alpha$                   |
+|        需要多次迭代         |                       无需多次迭代                        |
+| 当$n$很大的时候依然可以工作 | 需要计算$(X^TX)^{-1}$<br/>因此当$n$较大时矩阵那个运算较慢 |
+
+![image-20230602111958133](image-20230602111958133.png)
+
+### 4.7 Normal equation and non-invertibility(不可逆性)
+
+- $X^TX$不可逆问题
