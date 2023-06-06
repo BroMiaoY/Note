@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: 
+---
+
 # SpringBoot
 
 ### 常见问题
@@ -53,6 +57,28 @@
 
 2. 在idea中点击File -> Settings -> Editer -> File Encodings将Global Encoding和Project Encodeing都改为UTF-8
 
-![编码不统一](https://github.com/BroMiaoY/Note/blob/main/%E5%90%8E%E7%AB%AF/Springboot/%E7%BC%96%E7%A0%81%E4%B8%8D%E7%BB%9F%E4%B8%80.png)
+![80](80.png)
 
 **或者全改为GBK，统一即可**
+
+
+
+#### 2 Could not create the Java Virtual Machine.
+
+**可能出现的问题：**
+
+1.内存不足，清理缓存，重启idea
+
+![image-20230606092458495](image-20230606092458495.png)
+
+2.jdk环境错误，检查环境；或者运行的jdk版本和环境中jdk版本不统一
+
+查看Run Configurations
+
+![image-20230606092705413](image-20230606092705413.png)
+
+查看Project Structure
+
+![image-20230606092810677](image-20230606092810677.png)
+
+问题解决

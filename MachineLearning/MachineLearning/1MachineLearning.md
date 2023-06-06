@@ -1,5 +1,5 @@
 ---
-typora-copy-images-to: https://github.com/BroMiaoY/Note/blob/main/MachineLearning/MachineLearning/
+typora-copy-images-to: ./
 ---
 
 # Machine Learning
@@ -281,5 +281,121 @@ $$
 
 ### 4.7 Normal equation and non-invertibility(不可逆性)
 
-- $X^TX$不可逆问题
+- **$X^TX$不可逆**
+  - 存在**Redandunt features**冗余特征时：行（列）向量线性相关时**Linearly dependent**（线性依赖）
+    - 删除冗余的特征
+  - Too many features ($m \le n$)特征数量大于训练集
+    - 删除一些特征，或正则化
 
+![image-20230602150413748](image-20230602150413748.png)
+
+**相当于方程的数量小于未知数的数量，因此无解**
+
+
+
+##  6 Logistic Regression
+
+### 6.1 Classification
+
+- 线性回归不适用于分类的问题的原因：噪声影响回归模型
+
+![image-20230602155231126](image-20230602155231126.png)
+
+- 使用**Logistic Regression**代替**Linear Regression**处理**Classification**
+
+![image-20230602160724522](image-20230602160724522.png)
+
+###  6.2 Hypothesis Representation假设表示
+
+- **Logistic Regression Modle**：Sigmoid function/Logistic function
+
+$$
+g(z) = \frac{1}{1 + e^{-z}}
+$$
+
+![image-20230602161227394](image-20230602161227394.png)
+
+### 6.3 Decision boundary决策界限
+
+- **e.g: Logistic regression**
+  - $g(z)\geq 0.5$    $when$   $z \geq 0$
+  - $h_\theta (x) = g(\theta^T x) \geq 0.5$  $when$  $\theta^T x \geq 0$
+
+![image-20230602162748703](image-20230602162748703.png)
+
+- **Decision Boundary**:决策边界
+
+![image-20230602163710723](image-20230602163710723.png)
+
+- **non-linear decision boundaries:**非线性决策边界
+
+![image-20230602164427315](image-20230602164427315.png)
+
+### 6.4 Cost function
+
+-  **线性回归存在的问题**：可能代价函数不是一个凸
+  - 可能存在多个局部最优解
+  - 因此在梯度下降时存在未收敛到全局最小值的情况
+
+![image-20230602165604077](image-20230602165604077.png)
+
+- 使用**Logistic regression**实现代价函数呈现凸图
+  - 关注$z \in [0, 1]$因此图像为下图
+
+- 公式含义：也就是公式$-\log{z} \in (0,1]$,  if  $ y=1$的函数意义
+  - 当预测值和实际值都1时cost function=0
+  - 当预测值和实际值一个为0，另一个为1时，cost function=$\infty$
+  - 也就是当错误越大，那么惩罚也越大
+- **Logistic regression cost function when** **y=1**
+
+![image-20230602170024736](image-20230602170024736.png)
+
+![image-20230603090805174](image-20230603090805174.png)
+
+- **Logistic regression cost function when** **y=0**
+
+![image-20230603091359638](image-20230603091359638.png)
+
+### 6.5 Simplified cost function and gradient descent
+
+- **单个训练样本的Cost function**
+
+$$
+Cost(h_\theta (x), y) = -y\log{(h_\theta (x))} - (1-y)\log{(1-h_\theta (x))}
+$$
+
+- **解释：**
+  - IF $y=1:$  $Cost(h_\theta (x), y) = -\log{h_\theta (x)}$
+  - IF $y=0:$  $Cost(H_\theta (x), y) = -\log{(1-h_\theta (x))}$  
+
+ ![image-20230603092606339](image-20230603092606339.png)
+
+- **Logistic regression cost function**
+  - 概率论：**极大似然法**得来
+
+$$
+\begin{aligned}
+J(\theta) &= \frac{1}{m}\sum^m_{i-1}{Cost(h_\theta(x^{(i)}), y^{(i)})}\\
+		  &=  -\frac{1}{m}[\sum^m_{i-1}{y^{(i)}\log{h_\theta(x^{(i)}) + (1-y^{(i)})\log{(1-h_\theta(x^{(i)}))}}}]
+\end{aligned}
+$$
+
+- 为了使得cost function最小，拟合出合适的$\theta$
+
+![image-20230603100923179](image-20230603100923179.png)
+
+- **Gradient Descent**
+
+$$
+J(\theta) = -\frac{1}{m}[\sum^m_{i-1}{y^{(i)}\log{h_\theta(x^{(i)}) + (1-y^{(i)})\log{(1-h_\theta(x^{(i)}))}}}]
+$$
+
+使得$J(\theta)$最小：
+
+Repeat {
+
+​				$\begin{aligned}\theta_j &:= \theta_j - \alpha\frac{\partial}{\partial \theta_j}{J(\theta)}\\ &:=\theta_j - \alpha\sum^m_{i-1}(h_\theta(x^{(i)} - y^{(i)})x_j^{(i)}) \end{aligned}$ 
+
+}
+
+- 刚好和线性回归的求导结果一样，但实际的意义不同，逻辑回归使用了sigomid映射函数
