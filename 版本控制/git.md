@@ -1,3 +1,7 @@
+---
+typora-copy-images-to:./
+---
+
 # Git
 
 #### 1 git chone克隆项目
