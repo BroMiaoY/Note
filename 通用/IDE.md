@@ -1,5 +1,5 @@
 ---
-typora-copy-images-to: https://github.com/BroMiaoY/Note/blob/main/通用/IDE_image
+typora-copy-images-to: https://raw.githubusercontent.com/BroMiaoY/Note/blob/main/通用/IDE_image
 ---
 
 https://github.com/BroMiaoY/Note/blob/main/通用/
