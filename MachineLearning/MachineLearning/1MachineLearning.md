@@ -1,5 +1,5 @@
 ---
-typora-copy-images-to: https://raw.githubusercontent.com/BroMiaoY/Note/blob/main/MachineLearning/MachineLearning/
+typora-copy-images-to:
 ---
 
 # Machine Learning
@@ -477,3 +477,106 @@ $$
 J(\theta) = \frac{1}{2m}[\sum_{i=1}^m({h_\theta(x^{(i)}) - y^{(i)})^2} + \lambda\sum_{i=1}^n{\theta_j^2}]
 $$
 
+
+
+# Deep Learning
+
+
+
+### 1 Artificial Neural Network
+
+BP神经网络：信号正向传播，**误差反向**传播
+
+#### 神经元与激活函数：
+
+**神经元：**
+
+1.感知机：多个输入，加权计算后输出
+
+2.Sigmoid函数：输入为0-1的任意值（正则化），输出也不再是$wx+b$而是$\sigma(wx+b)$
+$$
+\sigma(z) = \frac{1}{1+e^{-z}}
+$$
+
+
+损失函数：
+$$
+Loss = \frac{1}{n}\sum^{n}_{i=1}{|f_i-y_i|}
+$$
+当$\sigma(z)\approx0$或$\sigma(z)\approx1$时，Sigmoid神经元的输出跟感知器是很接近的。只有当w?x+b在一个适度的值，sigmoid神经元和感知器偏差才较大。
+
+**激活函数：**
+
+神经元的输入和输出之间具有函数关系，这个函数就称为激励函数。
+
+**多层感知机：**
+
+![image-20230709090150676](D:\miao\note\MachineLearning\MachineLearning\1MachineLearning\image-20230709090150676.png)
+
+
+
+### 2 Convolution  Neural Network
+
+#### 数据输入层/ Input layer
+
+去均值：输入数据各个维度都中心化为0，把样本拉到坐标系原点上
+
+归一化:
+
+PCA/白化：PCA降维，数据各个特征轴上的幅度归一化
+
+
+
+#### 卷积计算层/ CONV layer
+
+深度：
+
+步幅：
+
+填充值：
+
+卷积层的输出大小：$O = \frac{(W-K+2P)}{S}+1$
+
+ O 是输出尺寸，K 是过滤器尺寸，P 是填充，S 是步幅
+
+![img](D:\miao\note\MachineLearning\MachineLearning\1MachineLearning\v2-ae8a4d6f0ded77d731f179f361254db1_720w.gif)
+
+#### ReLU激励层 / ReLU layer
+
+激活函数用于解决**线性不可分**问题，提高对模型的表达能力
+
+**ReLU:**
+$$
+f(x) = max(0,x), f(x)\in(0,+\infty)
+$$
+**Sigmoid:**
+$$
+g(x) = \frac{1}{1+e^{-x}},g(x)\in(0,1)
+$$
+使用ReLU激活后矩阵产生很多0，Sigmoid激活后矩阵中元素值都处于0-1之间
+
+因此ReLU输出要比Sigmoid稀疏度高，特征少更易拟合，找规律更容易
+
+**总结：ReLU具有稀疏化的功能**
+
+
+
+#### 池化层 / Pooling layer
+
+信息冗余
+
+池化层夹在连续的卷积层中间，用于压缩数据和参数的体量，减少过拟合
+
+**特征不变性**
+
+**特征降维**
+
+**防止过拟合**
+
+
+
+#### 全连接层 / FC layer
+
+将学到的**特征**表示**映射**到**样本的标记空间**
+
+**分类器作用**
